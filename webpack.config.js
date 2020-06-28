@@ -26,6 +26,17 @@ module.exports = {
     rules: [{
       test: /\.css$/,
       use: ['style-loader', 'css-loader']
+    }, {
+      test: /\.(png|jpg|gif)$/,
+      use: [{loader:'url-loader',
+        options: {
+          limit: 50,
+          outputPath: 'assets/'
+        }}]
+    },
+    {
+      test: /\.(htm|html)$/i,
+      use: ['html-loader']
     }]
   }
 }
